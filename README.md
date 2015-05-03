@@ -4,18 +4,26 @@ What does it do?
 ----------------
 Written entirely in Python 3, this bot will pull comments from the subreddit [/r/GuildWars2](http://www.reddit.com/r/guildwars2), check if they contain given alert words, and then respond with data taken from the GW2Spidy API. In this case, if one were to comment "!gemprice", "!gemprices", or "!gemrate", the bot will reply with the current buying price of gems and the current selling price of gems within the game of Guild Wars 2. The sell/buy price returned in the reply are taken from the [GW2Spidy API](https://github.com/rubensayshi/gw2spidy/wiki/API-v0.9), which is pulled from the popular website [GW2Spidy](http://www.gw2spidy.com/).
 
+Features:
+---------
+
+- Comments that have been replied to have their IDs stored in the `replyIDs.txt` file, so that the bot will not reply twice to a comment containing a certain keyword, even after a restart.
+- Anti-crash code to ensure that the bot will not crash if GW2Spidy is down, or Reddit is down. This allows for the bot to be run eternally on some external machine without worrying about crashes.
+- Easy to modify.
+- Lightweight.
+
+Example use:
+------------
+Here I posted a comment containing the alert word "!gemprice" and the bot responded accordingly:
+<p align="center">
+  <img src="http://i.imgur.com/O5f53KS.png" alt="gemBot example of use."/>
+</p>
+
 Requirements
 ------------
 
 - [PRAW](https://praw.readthedocs.org/en/v2.1.21/): The Python Reddit API Wrapper
 - A Python 3 wrapper for the GW2Spidy API. In this case, you can use my wrapper, [pygw2spidy](https://github.com/snowspirit/pygw2spidy). Just include it in the project folder.
-
-Features:
----------
-
-- Comments that have been replied to have their IDs stored in the `replyIDs.txt` file, so that the bot will not reply twice to a comment containing a certain keyword, even after a restart.
-- Easy to modify.
-- Lightweight.
 
 Note:
 -----
