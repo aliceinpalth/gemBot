@@ -1,5 +1,6 @@
 import praw
 import time
+import re
 import os
 import getReply
 
@@ -10,7 +11,7 @@ print("\nPlease log in:")
 r.login()
 
 operatingSubreddit = "test"
-alertWords = ["!gemprice", "!gemprices", "!gemrate"]
+alertWords = ["!gemprice"]
 pullLimit = 50
 # pullGroups will track how many groups of comments have been pulled.
 pullGroups = 0
@@ -47,18 +48,27 @@ def runBot():
             commentText = comment.body.lower()
             isAlertComment = any(string in commentText for string in alertWords)
 
+            match = re.search(r'!gemprice (\d+)', commentText)
+
+            if match:
+                amount = int(match.group(1))
+                if amount > 9999:
+                    amount = 9999
+            else:
+                amount = 100
+
             if comment.id not in commentsSeen and isAlertComment:
                 print("    > Alert comment found! ID: " + comment.id + "\n    > Comment text: " + commentText + "\n    > Replying now...")
 
                 # Anti-crash code to prevent the bot from stopping in-case gemBot.py cannot get a response (if GW2Spidy.com is down):
                 try:
-                    comment.reply(getReply.gemComment())
+                    comment.reply(getReply.gemComment(amount))
                     print("    > Reply sent! (ID: " + comment.id + ")")
                     print("    > Comment added to commentsSeen (ID: " + comment.id + ")")
                     with open("replyIDs.txt", "a") as c:
                         c.write(comment.id + "\n")
                 except:
-                    print("    > No response from gemBot.py. Perhaps GW2Spidy is down?")
+                    print("    > No response from getReply.py. Perhaps GW2Spidy is down?")
                     print("    > Comment was not added to commentsSeen (ID: " + comment.id + ") \n")
                     print("    > Beginning pull of next group of comments now... \n")
         pullGroups += 1
