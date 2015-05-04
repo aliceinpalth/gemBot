@@ -13,8 +13,7 @@ Features:
 - A quantity limit makes sure that requests cannot be made with the quantity being over 9999. In this case, the quantity is just set to 9999.
 - If no quantity is set, or non-numeric numbers are present after "!gemprice", the bot will simply show the data for a quantity of 100 gems.
 - Anti-crash code to ensure that the bot will not crash if GW2Spidy is down, or Reddit is down. This allows for the bot to be run externally on some external machine without worrying about crashes.
-- Easy to modify.
-- Lightweight.
+- Easy to modify and lightweight. 
 
 Example use:
 ------------
