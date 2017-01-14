@@ -14,7 +14,7 @@ You can view the current buy and sell prices of gems on the GW2Spidy website [he
 # Example usage
 Here a user posted a comment containing the alert words ``` !gemprice 800 ``` and the bot responded accordingly:
 <p align="center">
-  <img src="https://camo.githubusercontent.com/546964de09a8d4fee6e43cb2cdddf649b510cd46/687474703a2f2f692e696d6775722e636f6d2f39556b356d57712e706e67" alt="Sublime's custom image"/>
+  <img src="http://i.imgur.com/uBDFu0X.png" alt="Sublime's custom image"/>
 </p>
 # Requirements
 
