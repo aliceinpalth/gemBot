@@ -16,6 +16,7 @@ Here a user posted a comment containing the alert words ``` !gemprice 800 ``` an
 <p align="center">
   <img src="http://i.imgur.com/uBDFu0X.png" alt="Sublime's custom image"/>
 </p>
+
 # Requirements
 
 - [PRAW](https://praw.readthedocs.org/en/stable/): The Python Reddit API Wrapper
